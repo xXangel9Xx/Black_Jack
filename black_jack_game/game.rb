@@ -26,32 +26,36 @@ def game
    letter = []
    value_player = []
    shuflle_cart_player = []
-    
+   #////////// valores del crupier 
+   shuflle_cart_crupier = []
+
+   value_crupier = []
+   #////////// fin de valores del crupier
    letter = letters(letter) #esto crea las cartas
    #//////////// cartas del jugador
+    loop do
+         shuflle_cart_player << shuflle_player(letter) #esto barajea las cartas y te devuelve un string que es la carta que te toco interesante OJO
 
-   shuflle_cart_player << shuflle_player(letter) #esto barajea las cartas y te devuelve un string que es la carta que te toco interesante OJO
-
-   show_letters_player = show_letters(shuflle_cart_player) #muestra las cartas del jugador 
+         show_letters_player = show_letters(shuflle_cart_player) #muestra las cartas del jugador 
    
-   value_player << card_value(shuflle_cart_player) #esto devuelve el valor de las carta
+         value_player << card_value(shuflle_cart_player) #esto devuelve el valor de las carta
    
-  #///////////////////////cartas del crupier 
-
-  shuflle_cart_crupier = []
-
-  value_crupier = []
-
-  shuflle_cart_crupier << shuffle_crupier(letter) #esto barajea las cartas y te devuelve un string que es la carta que te toco interesante OJO
-
-  show_letters_crupier = show_letters(shuflle_cart_crupier) #muestra las cartas del crupier
-
-  value_crupier << card_value(shuflle_cart_crupier) #esto devuelve el valor de las cartas
-
-  #//////////// aqui acaba el peo de las cartas
-  #//////////// mesa
-  game_table(player , show_letters_player , value_player, crupier,show_letters_crupier, value_crupier )
+         #///////////////////////cartas del crupier 
 
 
+          shuflle_cart_crupier << shuflle_crupier(letter) #esto barajea las cartas y te devuelve un string que es la carta que te toco interesante OJO
+
+          show_letters_crupier = show_letters(shuflle_cart_crupier) #muestra las cartas del crupier
+
+          value_crupier << card_value(shuflle_cart_crupier) #esto devuelve el valor de las cartas
+       
+            #//////////// aqui acaba el peo de las cartas
+          #//////////// mesa
+          game_table(player , show_letters_player , value_player, crupier,show_letters_crupier, value_crupier )
+          puts "desea tomar otra carta"
+          respuesta = gets.chomp
+          system("clear")
+      break if respuesta != "si"
+    end
 end
 game
