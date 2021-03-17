@@ -12,9 +12,9 @@ require_relative 'bet'
 require_relative 'menu'
 
 def game
+ loop do  
   presentation
   menu
- loop do  
    what_would_you_like_to_do = gets.chomp.to_i
  case  what_would_you_like_to_do
    
@@ -47,8 +47,10 @@ def game
    letter = letters(letter) #esto crea las cartas
    #//////////// cartas del jugador
    loop do
+    system ("clear")
+    presentation
     loop do
-        presentation
+  #      presentation
          shuflle_cart_player << shuflle_player(letter) #esto barajea las cartas y te devuelve un string que es la carta que te toco interesante OJO
 
          show_letters_player = show_letters(shuflle_cart_player) #muestra las cartas del jugador 

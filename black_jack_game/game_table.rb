@@ -12,7 +12,7 @@ def game_table(player , show_letters_player , value_player, crupier, show_letter
         player[:money]  =  player[:money] + bet_to_play_crupier
     end
     if win == "Gana crupier"
-        player[:name]  = player[:name] - bet_to_play
+        player[:name]  = player[:money] - bet_to_play
         crupier[:money] = crupier[:money] + bet_to_play
     end
 puts " #{player[:name]}                                Crupier"
